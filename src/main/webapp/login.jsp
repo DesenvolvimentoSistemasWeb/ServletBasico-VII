@@ -13,11 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/styles.css"/>"/>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Digite Usuário e Senha para entrar no sistema</h1>
-            <div class="account-wall">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-sm-6 col-md-4 col-md-offset-4">
+            	<h1 class="text-center login-title">Digite Usuário e Senha para entrar no sistema</h1>
+            	<div class="account-wall">
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
                 <form class="form-signin" method="post" action="/ServletBasico-VI/Login">
                 	<input type="text" name="usuario" class="form-control" placeholder="Usuário" required autofocus>
@@ -35,8 +35,10 @@
             <!-- 
             <a href="#" class="text-center new-account">Create an account </a>
         	-->
-        </div>
-    </div>
-</div>
+        	</div>
+    	</div>
+	</div>
+<script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
+<script src="<c:url value="/resources/js/no-back.js"/>"></script>
 </body>
 </html>
