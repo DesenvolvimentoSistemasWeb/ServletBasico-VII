@@ -11,9 +11,9 @@
 <body>
     <div class="container">
     	<div class="jumbotron"><h4>Cadastro Básico</h4></div>
-    	<a class="btn btn-primary" href="/ServletBasico-VI/cadastro.jsp">Cadastrar</a>
-		<a class="btn btn-primary" href="/ServletBasico-VI/listagem.jsp">Listar</a>
-		<a href="/ServletBasico-VI/login.jsp" class="btn btn-primary">Sair</a>		
+    	<a class="btn btn-primary" href="/ServletBasico-VII/cadastro.jsp">Cadastrar</a>
+		<a class="btn btn-primary" href="/ServletBasico-VII/Listagem">Listar</a>
+		<a href="/ServletBasico-VII/login.jsp" class="btn btn-primary">Sair</a>		
     </div>
 </body>
 </html>

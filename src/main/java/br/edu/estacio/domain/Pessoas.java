@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 public class Pessoas {
 
-	private HashMap<Integer,Pessoa> pessoas = new HashMap<Integer,Pessoa>();
+	private HashMap<Long,Pessoa> pessoas = new HashMap<Long,Pessoa>();
 	
-	public void add(Integer codigo,Pessoa pessoa){
-		pessoas.put(codigo, pessoa);
+	public void add(Long l,Pessoa pessoa){
+		pessoas.put(l,pessoa);
 	}
 	
 	public Collection<Pessoa> getPessoas(){

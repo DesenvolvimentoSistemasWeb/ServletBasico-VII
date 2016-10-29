@@ -1,12 +1,16 @@
 package br.edu.estacio.interfaces;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.edu.estacio.persistence.DBConnection;
 
 /**
  * Servlet implementation class Login
@@ -45,6 +49,16 @@ public class Login extends HttpServlet {
 		RequestDispatcher rd;
 		request.getSession().invalidate();
 		if (usuarioLogin.equals(usuario) && senhaLogin.equals(senha)){
+			try {
+				Connection comm = DBConnection.Connect();
+				if (! comm.isClosed()){
+					System.out.println("Conexão estabelecida com sucesso!!");
+				}
+				comm.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Não foi possível conectar no banco de dados!!");
+			}
 			rd = request.getRequestDispatcher("/index.jsp");
 		} else {
 			rd = request.getRequestDispatcher("/");		

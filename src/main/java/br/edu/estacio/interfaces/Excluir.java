@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.edu.estacio.domain.Pessoa;
 import br.edu.estacio.domain.Pessoas;
+import br.edu.estacio.persistence.impl.ConvidadoDAO;
 
 /**
  * Servlet implementation class Excluir
@@ -32,12 +34,16 @@ public class Excluir extends HttpServlet {
 		
 		Integer cod = Integer.parseInt(codigo);
 		
-		Pessoas pessoas = (Pessoas) request.getSession().getAttribute("pessoas");
-		if (!pessoas.getPessoas().isEmpty()) {
-			pessoas.removeByCodigo(cod);
+		ConvidadoDAO convidadoDAO = new ConvidadoDAO();
+		
+		convidadoDAO.delete(cod);
+		Pessoas pessoas = new Pessoas();
+		for (Pessoa pessoa : convidadoDAO.readAll()) {
+			pessoas.add(pessoa.getCodigo(), pessoa);
 		}
 		
-		response.sendRedirect("/ServletBasico-VI/listagem.jsp");
+		request.getSession().setAttribute("pessoas", pessoas);
+		response.sendRedirect("/ServletBasico-VII/listagem.jsp");
 	}
 
 	/**

@@ -14,6 +14,8 @@
 			<h3>Listagem</h3>
 		</div>
 		<div>
+			<jsp:useBean id="mensagem" class="br.edu.estacio.domain.Mensagem" scope="page"></jsp:useBean>
+			<jsp:getProperty property="message" name="mensagem"/>
 			<table class="table">
 				<thead>
 					<tr>
@@ -26,14 +28,14 @@
 						<tr>
 							<td class="col-sm-1">${pessoa.codigo}</td>
 							<td class="col-sm-10">${pessoa.nome}</td>
-							<td><a href="/ServletBasico-VI/Editar/${pessoa.codigo}" class="btn btn-success">Editar</a>
-							<td><a href="/ServletBasico-VI/Excluir/${pessoa.codigo}" class="btn btn-danger">Excluir</a></td>
+							<td><a href="/ServletBasico-VII/Editar/${pessoa.codigo}" class="btn btn-success">Editar</a>
+							<td><a href="/ServletBasico-VII/Excluir/${pessoa.codigo}" class="btn btn-danger">Excluir</a></td>
 						</tr> 
 					</c:forEach>
 				</tbody>
 			</table>
-			<a href="/ServletBasico-VI/cadastro.jsp" class="btn btn-primary">Cadastro</a>
-			<a href="/ServletBasico-VI/login.jsp" class="btn btn-primary">Sair</a>
+			<a href="/ServletBasico-VII/cadastro.jsp" class="btn btn-primary">Cadastro</a>
+			<a href="/ServletBasico-VII/login.jsp" class="btn btn-primary">Sair</a>
 		</div>
 	</div>
 </body>

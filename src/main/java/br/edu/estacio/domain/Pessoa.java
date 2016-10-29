@@ -3,7 +3,7 @@ package br.edu.estacio.domain;
 public class Pessoa {
 
 	//Funciona como autoincremento
-	private int codigo;
+	private Long codigo;
 	
 	private String nome;
 
@@ -15,12 +15,12 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setCodigo(long l) {
+		this.codigo = l;
 	}
 	
 }

@@ -1,6 +1,7 @@
 package br.edu.estacio.interfaces;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,16 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.edu.estacio.domain.Pessoa;
 import br.edu.estacio.domain.Pessoas;
+import br.edu.estacio.persistence.impl.ConvidadoDAO;
 
 /**
  * Servlet implementation class Cadastro
  */
 public class Cadastro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private Pessoas pessoas = new Pessoas();
-	private int contador = 0;
-       
+	     
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -42,15 +41,17 @@ public class Cadastro extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String nome = request.getParameter("nome");
-		
+		ConvidadoDAO convidadoDAO = new ConvidadoDAO();
+		Pessoas pessoas = new Pessoas();
 		if (nome != null && !"".equals(nome)){
 			Pessoa temp = new Pessoa();
-			temp.setCodigo(contador);
 			temp.setNome(nome);
-			pessoas.add(contador,temp);
-			contador++;
+			convidadoDAO.create(temp);
+			for (Pessoa pessoa : convidadoDAO.readAll()) {
+				pessoas.add(pessoa.getCodigo(), pessoa);
+			}
 		}
-		request.getSession().setAttribute("pessoas", pessoas);
+		request.getSession().setAttribute("pessoas",pessoas);
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem.jsp");
 		rd.forward(request, response);
 	}

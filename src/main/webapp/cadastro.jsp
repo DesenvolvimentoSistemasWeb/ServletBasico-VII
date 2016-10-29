@@ -13,14 +13,14 @@
 		<div class="jumbotron">
 			<h3>Cadastro</h3>
 		</div>
-		<form class="form-vertical" action="/ServletBasico-VI/Cadastro" method="post">
+		<form class="form-vertical" action="/ServletBasico-VII/Cadastro" method="post">
 			<div class="form-group">
 				<label>Nome</label>
 				<input type="text" name="nome" class="form-control"/>
 			</div>
 			<input type="submit" class="btn btn-primary" value="Salvar"/>
-			<a href="/ServletBasico-VI/index.jsp" class="btn btn-primary">Inicio</a>
-			<a href="/ServletBasico-VI/login.jsp" class="btn btn-primary">Sair</a>			
+			<a href="/ServletBasico-VII/index.jsp" class="btn btn-primary">Inicio</a>
+			<a href="/ServletBasico-VII/login.jsp" class="btn btn-primary">Sair</a>			
 		</form>
 	</div>
 </body>
