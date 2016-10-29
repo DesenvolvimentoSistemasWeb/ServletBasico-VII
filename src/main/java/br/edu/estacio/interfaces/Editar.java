@@ -36,7 +36,7 @@ public class Editar extends HttpServlet {
 		
 		ConvidadoDAO convidadoDAO = new ConvidadoDAO();
 		
-		Integer cod = Integer.parseInt(codigo);
+		Long cod = Long.parseLong(codigo);
 		
 		//Pessoas pessoas = (Pessoas) request.getSession().getAttribute("pessoas");
 		Pessoa pessoa = null;
@@ -52,14 +52,12 @@ public class Editar extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String codigo = request.getPathInfo().substring(1);
 
-		Integer cod = Integer.parseInt(codigo);
+		Long cod = Long.parseLong(codigo);
 		
 		ConvidadoDAO convidadoDAO = new ConvidadoDAO();
 		
-		//Pessoas pessoas = (Pessoas) request.getSession().getAttribute("pessoas");
-		//pessoas.removeByCodigo(cod);
-		
 		String nome = request.getParameter("nome");
+		
 		Pessoa temp = new Pessoa();
 		temp.setCodigo(cod);
 		temp.setNome(nome);
@@ -71,7 +69,6 @@ public class Editar extends HttpServlet {
 		}	
 		
 		request.getSession().setAttribute("pessoas",pessoas);		
-		//response.sendRedirect("/ServletBasico-VII/listagem.jsp");
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem.jsp");
 		rd.forward(request,response);		
 		

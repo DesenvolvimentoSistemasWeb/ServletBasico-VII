@@ -82,7 +82,7 @@ public class ConvidadoDAO implements DAO<Pessoa>{
 			PreparedStatement stm = conn.prepareStatement("update convidado set nome=? where codigo=?");
 			stm.setString(1, t.getNome());
 			stm.setLong(2, t.getCodigo());
-			stm.executeQuery();
+			stm.executeUpdate();
 			conn.close();
 			System.out.println("Convidado atualizado com sucesso!!");
 		} catch (SQLException e) {
@@ -99,7 +99,7 @@ public class ConvidadoDAO implements DAO<Pessoa>{
 			conn = DBConnection.Connect();
 			PreparedStatement stm = conn.prepareStatement("delete from convidado where codigo=?");
 			stm.setLong(1, codigo);
-			stm.executeQuery();
+			stm.execute();
 			System.out.println("Convidado apagado com sucesso!!");
 		} catch (SQLException e) {
 			System.out.println("Erro ao conectar ao banco de dados!!");
